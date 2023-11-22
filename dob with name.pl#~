@@ -1,0 +1,7 @@
+dob(john, '1990-05-15').
+query_dob(Person, DateOfBirth) :-
+    dob(Person, DateOfBirth),
+    write('Date of Birth for '), write(Person), write(': '), write(DateOfBirth), nl.
+
+% Example queries
+

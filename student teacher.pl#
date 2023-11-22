@@ -1,0 +1,12 @@
+teacher(bhuvi, math).
+teacher(sanjay, physics).
+
+student(alice, math).
+student(bob, physics).
+
+course(math, m101).
+course(physics, p202).
+teaches(Teacher, Subject) :- teacher(Teacher, Subject).
+
+enrolled(Student, Subject) :- student(Student, Subject).
+takes_course(Student, CourseCode) :- student(Student, Subject), course(Subject, CourseCode).

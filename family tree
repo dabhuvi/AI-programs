@@ -1,0 +1,27 @@
+male(homer).
+male(bart).
+male(abe).
+female(marge).
+female(lisa).
+female(maggie).
+female(mona).
+
+parent(homer, bart).
+parent(homer, lisa).
+parent(homer, maggie).
+parent(marge, bart).
+parent(marge, lisa).
+parent(marge, maggie).
+parent(abe, homer).
+parent(mona, homer).
+
+father(X, Y) :- parent(X, Y), male(X).
+mother(X, Y) :- parent(X, Y), female(X).
+grandfather(X, Y) :- father(X, Z), parent(Z, Y).
+grandmother(X, Y) :- mother(X, Z), parent(Z, Y).
+sibling(X, Y) :- parent(Z, X), parent(Z, Y), X \= Y.
+brother(X, Y) :- sibling(X, Y), male(X).
+sister(X, Y) :- sibling(X, Y), female(X).
+uncle(X, Y) :- brother(X, Z), parent(Z, Y).
+aunt(X, Y) :- sister(X, Z), parent(Z, Y).
+cousin(X, Y) :- parent(Z, X), sibling(Z, W), parent(W, Y), X \= Y.

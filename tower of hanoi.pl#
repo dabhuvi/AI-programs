@@ -1,0 +1,7 @@
+
+move(0, _, _, _) :- !.
+move(N, A, B, C) :- 
+    N > 0,
+    N1 is N - 1,
+    move(N1, A, C, B), %    write('Move disk '), write(N), write(' from
+    move(N1, B, A, C). % move N-1 disks from B to C, using A as an auxiliary

@@ -1,0 +1,21 @@
+
+parent(john, jim).
+parent(john, lisa).
+parent(jane, jim).
+parent(jane, lisa).
+
+male(john).
+female(jane).
+male(jim).
+female(lisa).
+
+
+father(X, Y) :- parent(X, Y), male(X).
+mother(X, Y) :- parent(X, Y), female(X).
+
+
+ancestor(X, Y) :- parent(X, Y).
+ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
+
+
+:- ancestor(jane, lisa).

@@ -1,0 +1,12 @@
+symptom(john, fever).
+symptom(john, cough).
+symptom(mary, headache).
+symptom(mary, fatigue).
+symptom(mike, sore_throat).
+symptom(mike, fever).
+has_flu(Person) :- symptom(Person, fever), symptom(Person, cough).
+has_cold(Person) :- symptom(Person, sore_throat), symptom(Person, cough).
+has_migraine(Person) :- symptom(Person, headache), symptom(Person, fatigue).
+diagnosis(Person, flu) :- has_flu(Person).
+diagnosis(Person, cold) :- has_cold(Person).
+diagnosis(Person, migraine) :- has_migraine(Person).
